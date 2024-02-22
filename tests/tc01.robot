@@ -1,5 +1,5 @@
 *** Settings ***
-Resource  ../../keywords/main_keywords.robot
+Resource  ../keywords/main_keywords.robot
 
 *** Test Cases ***
 TC01

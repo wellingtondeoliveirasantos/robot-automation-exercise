@@ -28,5 +28,4 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        robot -d results/ tests/  # Specify your test directory and output directory
-
+        robot -d results tests/  
