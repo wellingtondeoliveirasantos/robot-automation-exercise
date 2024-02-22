@@ -4,12 +4,9 @@ Library  SeleniumLibrary
 
 *** Variables ***
 #Dados gerais
-${URL}  https://www.phptravels.net/
+${URL}  http://automationexercise.com
 ${Browser}  chrome
 
 #Dados do teste
-${PrimeiroNome}  Edward
-${UltimoNome}    Sheeran
-${Telefone}      555-431
-${Email}         teste@gmail.com
-${Senha}         123456
+${Email}         wellingtondeoliveirasanto@gmail.com
+${Senha}         datum

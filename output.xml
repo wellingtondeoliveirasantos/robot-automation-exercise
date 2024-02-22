@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2024-02-12T18:21:40.551694" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc01" source="/home/wellington/projetos/automacao/py/automationexercise/tests/voo/tc01.robot">
+<test id="s1-t1" name="TC01 - Reservando passagem de destinos dentro dos EUA na classe econômica" line="5">
+<kw name="Dado que eu acesse o php travels" owner="login_keywords">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-02-12T18:21:40.667000" level="INFO">Opening browser 'chrome' to base url 'https://www.phptravels.net/'.</msg>
+<arg>${URL}</arg>
+<arg>${Browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-02-12T18:21:40.666585" elapsed="8.081482"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-02-12T18:21:48.748615" elapsed="0.205010"/>
+</kw>
+<status status="PASS" start="2024-02-12T18:21:40.665184" elapsed="8.288717"/>
+</kw>
+<kw name="E realize o cadastro" owner="login_keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-02-12T18:22:04.307636" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-02-12T18:22:04.307950" level="FAIL">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 15 seconds.</msg>
+<arg>${Home.A_Signup}</arg>
+<arg>15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-02-12T18:21:48.955050" elapsed="15.353981">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 15 seconds.</status>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${Home.A_Signup}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.309341" elapsed="0.000115"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_PrimeiroNome}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.309616" elapsed="0.000086"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${Login.Input_PrimeiroNome}</arg>
+<arg>${PrimeiroNome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.309830" elapsed="0.000080"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_UltimoNome}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.310034" elapsed="0.000069"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${Login.Input_UltimoNome}</arg>
+<arg>${UltimoNome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.310216" elapsed="0.000068"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_Telefone}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.310397" elapsed="0.000072"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${Login.Input_Telefone}</arg>
+<arg>${Telefone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.310585" elapsed="0.000069"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_Email}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.310779" elapsed="0.000066"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${Login.Input_Email}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.310963" elapsed="0.000071"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_Senha}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.311149" elapsed="0.000065"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<arg>${Login.Input_Senha}</arg>
+<arg>${Senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.311330" elapsed="0.000151"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Button_Cookie}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.311612" elapsed="0.000072"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${Login.Button_Cookie}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.311799" elapsed="0.000060"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Button_Signup}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.311974" elapsed="0.000071"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.312167" elapsed="0.000080"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<arg>Click Element</arg>
+<arg>${Button_Signup}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.312372" elapsed="0.000073"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<arg>${Login.Button_Signup}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-02-12T18:22:04.312558" elapsed="0.000063"/>
+</kw>
+<status status="FAIL" start="2024-02-12T18:21:48.954416" elapsed="15.358333">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 15 seconds.</status>
+</kw>
+<kw name="E faça o Login" owner="login_keywords">
+<status status="NOT RUN" start="2024-02-12T18:22:04.313074" elapsed="0.000098"/>
+</kw>
+<kw name="Quando eu realizo uma busca de um vôo ida e volta" owner="voo_keywords">
+<status status="NOT RUN" start="2024-02-12T18:22:04.313373" elapsed="0.000075"/>
+</kw>
+<kw name="E saindo de Los Angeles EUA" owner="voo_keywords" source_name="E saindo de ${Texto}">
+<status status="NOT RUN" start="2024-02-12T18:22:04.313667" elapsed="0.000078"/>
+</kw>
+<kw name="E fecho o navegador" owner="login_keywords">
+<status status="NOT RUN" start="2024-02-12T18:22:04.313908" elapsed="0.000068"/>
+</kw>
+<status status="FAIL" start="2024-02-12T18:21:40.664515" elapsed="23.649687">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 15 seconds.</status>
+</test>
+<status status="FAIL" start="2024-02-12T18:21:40.553711" elapsed="23.761111"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tc01">Tc01</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

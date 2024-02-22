@@ -3,9 +3,21 @@ Resource  ../../resources/settings.resource
 Resource  ../../elements/main_elements.resource    # robotcode: ignore
 
 *** Keywords ***
-Dado que eu acesse o php travels
+Dado que eu acesse o automationexercise
     Open Browser  ${URL}  ${Browser}
     Maximize Browser Window
+
+E faça o Login
+    Wait Until Element Is Visible  ${Login.A_OpcaoLogin}      10
+    Click Element                  ${Login.A_OpcaoLogin} 
+    Wait Until Element Is Visible  ${Login.Input_EmailLogin}  10
+    Input Text                     ${Login.Input_EmailLogin}  ${Email}
+    Wait Until Element Is Visible  ${Login.Input_SenhaLogin}  10
+    Input Text                     ${Login.Input_SenhaLogin}  ${Senha}
+    Run Keyword And Ignore Error   Wait Until Element Is Visible  ${Button_Cookie}     5
+    Run Keyword And Ignore Error   Click Element                  ${Button_Cookie}
+    Wait Until Element Is Visible  ${Login.Button_Logar}      10
+    Click Element                  ${Login.Button_Logar} 
 
 E realize o cadastro
     Wait Until Element Is Visible      ${Home.A_Signup}            10
@@ -27,17 +39,7 @@ E realize o cadastro
     Run Keyword And Ignore Error       Click Element                      ${Button_Signup}    
     Click Element                      ${Login.Button_Signup}
 
-E faça o Login
-    Wait Until Element Is Visible  ${Login.A_OpcaoLogin}      10
-    Click Element                  ${Login.A_OpcaoLogin} 
-    Wait Until Element Is Visible  ${Login.Input_EmailLogin}  10
-    Input Text                     ${Login.Input_EmailLogin}  ${Email}
-    Wait Until Element Is Visible  ${Login.Input_SenhaLogin}  10
-    Input Text                     ${Login.Input_SenhaLogin}  ${Senha}
-    Run Keyword And Ignore Error   Wait Until Element Is Visible  ${Button_Cookie}     5
-    Run Keyword And Ignore Error   Click Element                  ${Button_Cookie}
-    Wait Until Element Is Visible  ${Login.Button_Logar}      10
-    Click Element                  ${Login.login.Button_Logar} 
+
 
 E fecho o navegador
     Close Browser

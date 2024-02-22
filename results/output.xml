@@ -1,154 +1,119 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2024-02-09T00:10:38.995790" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2024-02-12T19:52:05.054967" rpa="false" schemaversion="5">
 <suite id="s1" name="Tc01" source="/home/wellington/projetos/automacao/py/automationexercise/tests/voo/tc01.robot">
-<test id="s1-t1" name="TC01 - Reservando passagem de destinos dentro dos EUA na classe econômica" line="5">
-<kw name="Dado que eu acesse o php travels" owner="login_keywords">
+<test id="s1-t1" name="TC01" line="5">
+<kw name="Dado que eu acesse o automationexercise" owner="login_keywords">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-02-09T00:10:39.085142" level="INFO">Opening browser 'chrome' to base url 'https://www.phptravels.net/'.</msg>
+<msg time="2024-02-12T19:52:05.149508" level="INFO">Opening browser 'chrome' to base url 'http://automationexercise.com'.</msg>
 <arg>${URL}</arg>
 <arg>${Browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-02-09T00:10:39.084937" elapsed="10.719436"/>
+<status status="PASS" start="2024-02-12T19:52:05.149259" elapsed="4.868066"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-02-09T00:10:49.804842" elapsed="0.164316"/>
+<status status="PASS" start="2024-02-12T19:52:10.017597" elapsed="0.102437"/>
 </kw>
-<status status="PASS" start="2024-02-09T00:10:39.084340" elapsed="10.884968"/>
-</kw>
-<kw name="E realize o cadastro" owner="login_keywords">
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<msg time="2024-02-09T00:11:00.394144" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg time="2024-02-09T00:11:00.394333" level="FAIL">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 10 seconds.</msg>
-<arg>${Home.A_Signup}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="FAIL" start="2024-02-09T00:10:49.969961" elapsed="10.424826">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 10 seconds.</status>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${Home.A_Signup}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395003" elapsed="0.000030"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Input_PrimeiroNome}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395120" elapsed="0.000019"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${Login.Input_PrimeiroNome}</arg>
-<arg>${PrimeiroNome}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395223" elapsed="0.000018"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Input_UltimoNome}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395323" elapsed="0.000031"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${Login.Input_UltimoNome}</arg>
-<arg>${UltimoNome}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395433" elapsed="0.000017"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Input_Telefone}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395527" elapsed="0.000016"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${Login.Input_Telefone}</arg>
-<arg>${Telefone}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395619" elapsed="0.000017"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Input_Email}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395714" elapsed="0.000020"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${Login.Input_Email}</arg>
-<arg>${Email}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395809" elapsed="0.000017"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Input_Senha}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395900" elapsed="0.000017"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<arg>${Login.Input_Senha}</arg>
-<arg>${Senha}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.395991" elapsed="0.000018"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Button_Cookie}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.396086" elapsed="0.000017"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${Login.Button_Cookie}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.396186" elapsed="0.000017"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Login.Button_Signup}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.396277" elapsed="0.000017"/>
-</kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.396370" elapsed="0.000017"/>
-</kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<arg>Click Element</arg>
-<arg>${Button_Signup}</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.396469" elapsed="0.000017"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<arg>${Login.Button_Signup}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" start="2024-02-09T00:11:00.396562" elapsed="0.000017"/>
-</kw>
-<status status="FAIL" start="2024-02-09T00:10:49.969643" elapsed="10.427020">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 10 seconds.</status>
+<status status="PASS" start="2024-02-12T19:52:05.148477" elapsed="4.971709"/>
 </kw>
 <kw name="E faça o Login" owner="login_keywords">
-<status status="NOT RUN" start="2024-02-09T00:11:00.396892" elapsed="0.000027"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.A_OpcaoLogin}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-12T19:52:10.120802" elapsed="0.019653"/>
 </kw>
-<kw name="Quando eu realizo uma busca de um vôo ida e volta" owner="voo_keywords">
-<status status="NOT RUN" start="2024-02-09T00:11:00.397190" elapsed="0.000024"/>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-12T19:52:10.141183" level="INFO">Clicking element '(//a[@href="/login"])'.</msg>
+<arg>${Login.A_OpcaoLogin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-12T19:52:10.140701" elapsed="2.528253"/>
 </kw>
-<kw name="E saindo de Los Angeles EUA" owner="voo_keywords" source_name="E saindo de ${Texto}">
-<status status="NOT RUN" start="2024-02-09T00:11:00.397396" elapsed="0.000036"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_EmailLogin}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.669216" elapsed="0.014815"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-12T19:52:12.684759" level="INFO">Typing text 'wellingtondeoliveirasanto@gmail.com' into text field '//input[@data-qa="login-email"]'.</msg>
+<arg>${Login.Input_EmailLogin}</arg>
+<arg>${Email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.684275" elapsed="0.056295"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Input_SenhaLogin}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.740837" elapsed="0.012138"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-02-12T19:52:12.753705" level="INFO">Typing text 'datum' into text field '//input[@data-qa="login-password"]'.</msg>
+<arg>${Login.Input_SenhaLogin}</arg>
+<arg>${Senha}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.753213" elapsed="0.061983"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2024-02-12T19:52:12.816104" level="FAIL">Variable '${Button_Cookie}' not found.</msg>
+<arg>${Button_Cookie}</arg>
+<arg>5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2024-02-12T19:52:12.815651" elapsed="0.000488">Variable '${Button_Cookie}' not found.</status>
+</kw>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${Button_Cookie}</arg>
+<arg>5</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.815445" elapsed="0.000757"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-12T19:52:12.816907" level="FAIL">Variable '${Button_Cookie}' not found.</msg>
+<arg>${Button_Cookie}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-02-12T19:52:12.816434" elapsed="0.000502">Variable '${Button_Cookie}' not found.</status>
+</kw>
+<arg>Click Element</arg>
+<arg>${Button_Cookie}</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.816298" elapsed="0.000688"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${Login.Button_Logar}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.817076" elapsed="0.015241"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-02-12T19:52:12.833358" level="INFO">Clicking element '//button[@data-qa="login-button"]'.</msg>
+<arg>${Login.Button_Logar}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-02-12T19:52:12.832639" elapsed="2.537149"/>
+</kw>
+<status status="PASS" start="2024-02-12T19:52:10.120505" elapsed="5.249452"/>
 </kw>
 <kw name="E fecho o navegador" owner="login_keywords">
-<status status="NOT RUN" start="2024-02-09T00:11:00.397542" elapsed="0.000020"/>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-02-12T19:52:15.370594" elapsed="0.067053"/>
 </kw>
-<status status="FAIL" start="2024-02-09T00:10:39.083823" elapsed="21.313881">Element '//a[@href="https://www.phptravels.net/signup"]' not visible after 10 seconds.</status>
+<status status="PASS" start="2024-02-12T19:52:15.370269" elapsed="0.067531"/>
+</kw>
+<status status="PASS" start="2024-02-12T19:52:05.147970" elapsed="10.290026"/>
 </test>
-<status status="FAIL" start="2024-02-09T00:10:38.996494" elapsed="21.401552"/>
+<status status="PASS" start="2024-02-12T19:52:05.055659" elapsed="10.382713"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Tc01">Tc01</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tc01">Tc01</stat>
 </suite>
 </statistics>
 <errors>
