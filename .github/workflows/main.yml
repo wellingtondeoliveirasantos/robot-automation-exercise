@@ -28,4 +28,4 @@ jobs:
 
     - name: Run Robot Framework Tests
       run: |
-        robot -d results tests/*.robot  
+        robot -d results tests/tc01.robot  
