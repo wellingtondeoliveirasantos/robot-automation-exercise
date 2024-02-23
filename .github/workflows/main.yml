@@ -40,11 +40,12 @@ jobs:
         echo "Contents of /opt:"
         ls -la /opt
 
-    - name: Set Chrome binary path
+    - name: Set ChromeDriver binary path
       run: |
-        echo "export CHROME_BIN=/usr/bin/chromium-browser" >> $GITHUB_ENV
+        echo "export CHROME_DRIVER_PATH=/usr/bin/chromedriver" >> $GITHUB_ENV
 
     - name: Run Robot Framework tests
       run: |
         export CHROME_BIN=/usr/bin/chromium-browser
+        export PATH=$PATH:$CHROME_DRIVER_PATH
         robot --variable BROWSER:headlesschrome tests/
