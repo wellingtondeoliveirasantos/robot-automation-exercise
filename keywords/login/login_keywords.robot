@@ -4,7 +4,7 @@ Resource  ../../elements/main_elements.resource    # robotcode: ignore
 
 *** Keywords ***
 Dado que eu acesse o automationexercise
-    Open Browser  ${URL}  ${Browser}
+    Open Browser  ${URL}  ${Browser}  headless=True
 E faça o Login
     Wait Until Element Is Visible  ${Login.A_OpcaoLogin}      10
     Click Element                  ${Login.A_OpcaoLogin} 
