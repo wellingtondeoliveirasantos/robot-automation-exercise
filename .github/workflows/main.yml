@@ -32,15 +32,6 @@ jobs:
         sudo apt update
         sudo apt install -y chromium-browser chromium-chromedriver
 
-    - name: Debug Information
-      run: |
-        echo "Current directory: $(pwd)"
-        echo "Contents of /usr/bin:"
-        ls -la /usr/bin
-        echo "Contents of /opt:"
-        ls -la /opt
-
     - name: Run Robot Framework tests
       run: |
-        export CHROME_BIN=/usr/bin/chromium-browser
-        robot --variable BROWSER:headlesschrome --variable webdriver.chrome.driver:/usr/bin/chromedriver tests/
+        robot tests/
