@@ -4,7 +4,7 @@ Resource  ../../elements/main_elements.resource    # robotcode: ignore
 
 *** Keywords ***
 Dado que eu acesse o automationexercise
-    Open Browser  ${URL}  ${Browser}
+    Open Browser  ${URL}  ${Browser}  HeadlessChrome
     Maximize Browser Window
 
 E faça o Login
