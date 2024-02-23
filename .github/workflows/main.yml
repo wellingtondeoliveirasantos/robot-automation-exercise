@@ -63,4 +63,4 @@ jobs:
         run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
 
       - name: Run Robot Framework tests
-        run: robot --variable BROWSER:headlesschrome --argument "--no-sandbox" --argument "--disable-dev-shm-usage" tests/
+        run: robot --variable BROWSER:headlesschrome --argumentfile arguments.txt tests/
