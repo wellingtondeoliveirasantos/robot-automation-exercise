@@ -9,7 +9,7 @@ on:
       - master
 
 jobs:
-  test:
+  test-automation:
     runs-on: ubuntu-latest
 
     container:
@@ -51,4 +51,6 @@ jobs:
         fi
 
     - name: Run Robot Framework tests
-      run: robot --variable BROWSER:headlesschrome --chrome-binary=/usr/bin/google-chrome tests/
+      env:
+        CHROME_BIN: /usr/bin/google-chrome
+      run: robot --variable BROWSER:headlesschrome tests/
