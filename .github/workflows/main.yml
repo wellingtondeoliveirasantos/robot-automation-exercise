@@ -32,8 +32,8 @@ jobs:
         sudo apt update
         sudo apt install -y chromium-browser chromium-chromedriver
 
-    - name: Set PATH for ChromeDriver
-      run: echo "/usr/bin" >> $GITHUB_PATH
+    - name: Set Chrome binary path
+      run: echo "export CHROME_BIN=/usr/bin/chromium-browser" >> $GITHUB_ENV
 
     - name: Run Robot Framework tests
       run: |
