@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 *** Variables ***
 #Dados gerais
 ${URL}  http://automationexercise.com
-${Browser}  chrome
+${Browser}  HeadlessChrome
 
 #Dados do teste
 ${Email}         wellingtondeoliveirasanto@gmail.com
