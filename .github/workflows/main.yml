@@ -13,23 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: robotframework-firefox
+      image: python:3.10-slim
 
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10.12'
-
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install robotframework==7.0
-        pip install robotframework-seleniumlibrary
+        apt-get update && apt-get install -y \
+          wget \
+          gnupg \
+          unzip \
+          curl \
+          chromium \
+          chromium-driver \
+          libglib2.0-0 \
+          libnss3 \
+          libgconf-2-4 \
+          libfontconfig1 \
+          default-jre \
+          python3-pip \
+          && rm -rf /var/lib/apt/lists/*
+
+        pip3 install --upgrade pip
+        pip3 install robotframework robotframework-seleniumlibrary
 
     - name: Run Robot Framework tests
       run: |
-        robot --variable BROWSER:firefox tests/
+        robot --variable BROWSER:headlesschrome tests/
