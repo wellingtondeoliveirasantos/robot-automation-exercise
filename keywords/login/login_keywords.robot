@@ -4,8 +4,7 @@ Resource  ../../elements/main_elements.resource    # robotcode: ignore
 
 *** Keywords ***
 Dado que eu acesse o automationexercise
-    Open Browser  ${URL}  ${Browser}  HeadlessChrome
-    Maximize Browser Window
+    Open Browser  ${URL}  ${Browser}  HeadlessChrome  options=add_argument("--headless")  options=add_argument("--disable-gpu")  options=add_argument("--no-sandbox")
 
 E faça o Login
     Wait Until Element Is Visible  ${Login.A_OpcaoLogin}      10
@@ -16,5 +15,6 @@ E faça o Login
     Input Text                     ${Login.Input_SenhaLogin}  ${Senha}
     Wait Until Element Is Visible  ${Login.Button_Logar}      10
     Click Element                  ${Login.Button_Logar} 
+
 E fecho o navegador
     Close Browser
