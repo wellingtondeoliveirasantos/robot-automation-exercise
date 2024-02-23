@@ -32,8 +32,8 @@ jobs:
         sudo apt update
         sudo apt install -y chromium-browser chromium-chromedriver
 
-    - name: Set PATH for Robot Framework
-      run: echo "/opt/hostedtoolcache/Python/3.10.12/x64/bin" >> $GITHUB_PATH
+    - name: Set PATH for ChromeDriver
+      run: echo "/usr/bin/google-chrome-stable" >> $GITHUB_PATH
 
     - name: Run Robot Framework tests
       run: |
