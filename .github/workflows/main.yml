@@ -26,6 +26,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install robotframework==7.0
 
+    - name: Add Robot Framework to PATH
+      run: echo "::add-path::/opt/hostedtoolcache/Python/3.10.12/x64/bin/"
+
     - name: Run Robot Framework tests
       run: |
-        robot tests/
+        /opt/hostedtoolcache/Python/3.10.12/x64/bin/robot tests/
