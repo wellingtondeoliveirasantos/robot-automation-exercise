@@ -27,13 +27,18 @@ jobs:
         pip install robotframework==7.0
         pip install robotframework-seleniumlibrary
 
-    - name: Download ChromeDriver
+    - name: Install ChromeDriver
       run: |
         CHROME_DRIVER_VERSION="94.0.4606.61"
-        wget -N "https://chromedriver.storage.googleapis.com/${CHROME_DRIVER_VERSION}/chromedriver_linux64.zip"
-        unzip chromedriver_linux64.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin/
+        CHROME_VERSION="121.0.6167.184"
+        wget -N "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
+        LATEST_CHROME_DRIVER_VERSION=$(cat LATEST_RELEASE)
+        if [[ "$LATEST_CHROME_DRIVER_VERSION" != "$CHROME_DRIVER_VERSION" ]]; then
+          wget -N "https://chromedriver.storage.googleapis.com/$CHROME_VERSION/chromedriver_linux64.zip"
+          unzip chromedriver_linux64.zip
+          chmod +x chromedriver
+          sudo mv chromedriver /usr/local/bin/
+        fi
 
     - name: Run Robot Framework tests
       run: |
