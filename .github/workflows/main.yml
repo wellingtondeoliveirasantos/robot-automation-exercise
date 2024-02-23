@@ -28,7 +28,7 @@ jobs:
             curl \
             unzip \
             && pip install --upgrade pip \
-            && pip install robotframework==4.1 robotframework-seleniumlibrary
+            && pip install robotframework==4.1 robotframework-seleniumlibrary selenium==4.9.1
 
       - name: Add Google Chrome repository key
         run: |
