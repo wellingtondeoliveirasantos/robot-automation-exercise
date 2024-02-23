@@ -42,13 +42,15 @@ jobs:
       run: |
         apt-get update && apt-get install -y google-chrome-stable
 
-    - name: Obtain Chrome version
+    - name: Obtain Chrome version (corrected)
       run: |
-        CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d '.' -f 1)
-        if [ -z "$CHROME_VERSION" ]; then
-          echo "Failed to obtain Chrome version."
-          exit 1
-        fi
+          CHROME_VERSION=$(google-chrome-stable --version 2>&1 | awk '{print $3}' | cut -d '.' -f 1)
+          if [ $? -eq 0 ]; then
+            echo "Chrome version obtained: $CHROME_VERSION"
+          else
+            echo "Failed to obtain Chrome version. See output above for details."
+            exit 1
+          fi
 
     - name: Download and install ChromeDriver
       run: |
