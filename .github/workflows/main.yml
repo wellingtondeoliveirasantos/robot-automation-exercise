@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     container:
-      image: python:3.10-slim
+      image: python:3.13-rc-slim
 
     steps:
       - name: Checkout Repository
