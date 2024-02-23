@@ -53,4 +53,4 @@ jobs:
     - name: Run Robot Framework tests
       env:
         CHROME_BIN: /usr/bin/google-chrome
-      run: robot --variable BROWSER:headlesschrome --chrome-binary=${CHROME_BIN} tests/
+      run: robot --variable BROWSER:headlesschrome --chrome=${CHROME_BIN} tests/
