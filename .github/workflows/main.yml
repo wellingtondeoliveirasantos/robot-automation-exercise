@@ -32,10 +32,7 @@ jobs:
 
     - name: Add Google Chrome repository key
       run: |
-        if ! wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -; then
-          echo "Failed to add Google Chrome repository key"
-          exit 1
-        fi
+        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 
     - name: Add Google Chrome repository
       run: |
@@ -43,40 +40,13 @@ jobs:
 
     - name: Install Google Chrome
       run: |
-        if ! apt-get update && apt-get install -y google-chrome-stable; then
-          echo "Failed to install Google Chrome"
-          exit 1
-        fi
+        apt-get update && apt-get install -y google-chrome-stable
 
     - name: Obtain Chrome version
       run: |
         CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}' | cut -d '.' -f 1)
         if [ -z "$CHROME_VERSION" ]; then
           echo "Failed to obtain Chrome version."
-          exit 1
-        fi
-
-    - name: Obtain ChromeDriver version
-      run: |
-        CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-        if [ -z "$CHROMEDRIVER_VERSION" ]; then
-          echo "Failed to fetch ChromeDriver version."
-          exit 1
-        fi
-
-    - name: Download and install ChromeDriver
-      run: |
-        if ! wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip; then
-          echo "Failed to download ChromeDriver."
-          exit 1
-        fi
-        if ! unzip -qq /tmp/chromedriver_linux64.zip -d /tmp; then
-          echo "Failed to unzip ChromeDriver."
-          exit 1
-        fi
-        chmod +x /tmp/chromedriver
-        if ! mv /tmp/chromedriver /usr/local/bin/; then
-          echo "Failed to move ChromeDriver."
           exit 1
         fi
 
