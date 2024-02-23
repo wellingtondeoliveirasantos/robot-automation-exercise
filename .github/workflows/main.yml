@@ -16,34 +16,34 @@ jobs:
       image: python:3.10-slim
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          apt-get update && apt-get install -y \
-            default-jre \
-            wget \
-            gnupg \
-            curl \
-            unzip \
-            && pip install --upgrade pip \
-            && pip install robotframework==7.0 robotframework-seleniumlibrary
+    - name: Install dependencies
+      run: |
+        apt-get update && apt-get install -y \
+          default-jre \
+          wget \
+          gnupg \
+          curl \
+          unzip \
+          && pip install --upgrade pip \
+          && pip install robotframework==4.1 robotframework-seleniumlibrary
 
-      - name: Add Google Chrome repository key
-        run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+    - name: Add Google Chrome repository key
+      run: |
+        wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 
-      - name: Add Google Chrome repository
-        run: |
-          echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+    - name: Add Google Chrome repository
+      run: |
+        echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
 
-      - name: Install Google Chrome
-        run: |
-          apt-get update && apt-get install -y google-chrome-stable
+    - name: Install Google Chrome
+      run: |
+        apt-get update && apt-get install -y google-chrome-stable
 
-      - name: Obtain Chrome version (corrected)
-        run: |
+    - name: Obtain Chrome version (corrected)
+      run: |
           CHROME_VERSION=$(google-chrome-stable --version 2>&1 | awk '{print $3}' | cut -d '.' -f 1)
           if [ $? -eq 0 ]; then
             echo "Chrome version obtained: $CHROME_VERSION"
@@ -52,22 +52,23 @@ jobs:
             exit 1
           fi
 
-      - name: Download and install ChromeDriver
-        run: |
-          CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-          wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
-          unzip -qq /tmp/chromedriver_linux64.zip -d /tmp
-          chmod +x /tmp/chromedriver
-          mv /tmp/chromedriver /usr/local/bin/
+    - name: Download and install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}')
+        CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+        wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+        unzip -qq /tmp/chromedriver_linux64.zip -d /tmp
+        chmod +x /tmp/chromedriver
+        mv /tmp/chromedriver /usr/local/bin/
 
-      - name: Add ChromeDriver to PATH
-        run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
+    - name: Add ChromeDriver to PATH
+      run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
 
-      - name: Run Robot Framework tests
-        run: robot --variable BROWSER:headlesschrome --argument "--headless" --argument "--disable-gpu" --argument "--no-sandbox" tests/
+    - name: Run Robot Framework tests
+      run: robot --variable BROWSER:headlesschrome --argument "--headless" --argument "--disable-gpu" --argument "--no-sandbox" tests/
 
-      - name: Upload test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-results
-          path: reports/output.xml
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: reports/output.xml
