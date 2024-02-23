@@ -62,5 +62,8 @@ jobs:
       - name: Add ChromeDriver to PATH
         run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
 
+      - name: Create arguments file
+        run: echo "--disable-dev-shm-usage" > arguments.txt
+
       - name: Run Robot Framework tests
-        run: robot --variable BROWSER:headlesschrome --argument "--disable-dev-shm-usage" --argument "--no-sandbox" tests/tc01.robot
+        run: robot --variable BROWSER:headlesschrome tests/tc01.robot
