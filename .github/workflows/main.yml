@@ -22,10 +22,6 @@ jobs:
     - name: Install dependencies
       run: |
         apt-get update && apt-get install -y \
-          wget \
-          gnupg \
-          unzip \
-          curl \
           chromium \
           chromium-driver \
           libglib2.0-0 \
@@ -33,12 +29,8 @@ jobs:
           libgconf-2-4 \
           libfontconfig1 \
           default-jre \
-          python3-pip \
-          && rm -rf /var/lib/apt/lists/*
-
-        pip3 install --upgrade pip
-        pip3 install robotframework robotframework-seleniumlibrary
+          && pip install --upgrade pip \
+          && pip install robotframework==7.0 robotframework-seleniumlibrary
 
     - name: Run Robot Framework tests
-      run: |
-        robot --variable BROWSER:headlesschrome tests/
+      run: robot --variable BROWSER:headlesschrome tests/
