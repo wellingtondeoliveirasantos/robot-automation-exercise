@@ -51,18 +51,5 @@ jobs:
           fi
           echo "Chrome version: $CHROME_VERSION"
 
-      - name: Download and install ChromeDriver
-        run: |
-          CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          if [ -z "$CHROMEDRIVER_VERSION" ]; then
-            echo "Failed to obtain ChromeDriver version."
-            exit 1
-          fi
-          echo "ChromeDriver version: $CHROMEDRIVER_VERSION"
-          wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip -qq /tmp/chromedriver_linux64.zip -d /tmp
-          chmod +x /tmp/chromedriver
-          mv /tmp/chromedriver /usr/local/bin/
-
       - name: Run Robot Framework tests
         run: robot --variable BROWSER:headlesschrome tests/
