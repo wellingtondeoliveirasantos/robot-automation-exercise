@@ -31,9 +31,19 @@ jobs:
       run: |
         sudo rm /usr/local/bin/chromedriver || true
 
-    - name: Download ChromeDriver
+    - name: Determine Chrome version
       run: |
-        CHROME_DRIVER_VERSION="94.0.4606.61"
+        CHROME_VERSION=$(google-chrome --version | cut -d' ' -f3 | cut -d'.' -f1)
+        echo "Detected Chrome version: $CHROME_VERSION"
+
+    - name: Download and install ChromeDriver
+      run: |
+        if [ "$CHROME_VERSION" = "121" ]; then
+          CHROME_DRIVER_VERSION="121.0.6167.184"
+        else
+          echo "Unsupported Chrome version: $CHROME_VERSION"
+          exit 1
+        fi
         wget -N "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip"
         unzip chromedriver_linux64.zip
         chmod +x chromedriver
@@ -42,3 +52,5 @@ jobs:
     - name: Run Robot Framework tests
       run: |
         robot --variable BROWSER:headlesschrome tests/
+
+        
