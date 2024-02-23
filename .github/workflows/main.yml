@@ -59,5 +59,14 @@ jobs:
         chmod +x /tmp/chromedriver
         mv /tmp/chromedriver /usr/local/bin/
 
+    - name: Add ChromeDriver to PATH
+      run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
+
     - name: Run Robot Framework tests
-      run: robot --variable BROWSER:headlesschrome tests/
+      run: robot --variable BROWSER:headlesschrome --argument "--headless" --argument "--disable-gpu" --argument "--no-sandbox" tests/
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: reports/output.xml
