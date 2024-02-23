@@ -22,15 +22,23 @@ jobs:
     - name: Install dependencies
       run: |
         apt-get update && apt-get install -y \
-          chromium-browser \
-          chromium-chromedriver \
-          libglib2.0-0 \
-          libnss3 \
-          libgconf-2-4 \
-          libfontconfig1 \
           default-jre \
           && pip install --upgrade pip \
           && pip install robotframework==7.0 robotframework-seleniumlibrary
+
+    - name: Download and install Chrome
+      run: |
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        apt-get install -y ./google-chrome-stable_current_amd64.deb
+
+    - name: Download and install ChromeDriver
+      run: |
+        wget -N https://chromedriver.storage.googleapis.com/LATEST_RELEASE
+        LATEST_RELEASE=$(cat LATEST_RELEASE)
+        wget https://chromedriver.storage.googleapis.com/$LATEST_RELEASE/chromedriver_linux64.zip
+        unzip chromedriver_linux64.zip
+        chmod +x chromedriver
+        mv chromedriver /usr/local/bin/
 
     - name: Run Robot Framework tests
       run: robot --variable BROWSER:headlesschrome tests/
