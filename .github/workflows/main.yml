@@ -60,4 +60,4 @@ jobs:
         mv /tmp/chromedriver /usr/local/bin/
 
     - name: Run Robot Framework tests
-      run: robot --variable BROWSER:headlesschrome --driver ChromeHeadless tests/
+      run: robot --variable BROWSER:headlesschrome tests/
