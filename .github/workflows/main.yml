@@ -12,6 +12,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    container:
+      image: robotframework-firefox
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -26,15 +29,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install robotframework==7.0
         pip install robotframework-seleniumlibrary
-
-    - name: Install Firefox and GeckoDriver
-      run: |
-        sudo apt update
-        sudo apt install -y firefox
-        wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
-        tar -xvzf geckodriver-v0.30.0-linux64.tar.gz
-        chmod +x geckodriver
-        sudo mv geckodriver /usr/local/bin/
 
     - name: Run Robot Framework tests
       run: |
