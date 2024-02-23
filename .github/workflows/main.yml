@@ -27,9 +27,14 @@ jobs:
         pip install robotframework==7.0
         pip install robotframework-seleniumlibrary
 
+    - name: Install Chrome and ChromeDriver
+      run: |
+        sudo apt update
+        sudo apt install -y chromium-browser chromium-chromedriver
+
     - name: Set PATH for Robot Framework
       run: echo "/opt/hostedtoolcache/Python/3.10.12/x64/bin" >> $GITHUB_PATH
 
     - name: Run Robot Framework tests
       run: |
-        robot tests/
+        robot --variable BROWSER:headlesschrome tests/
