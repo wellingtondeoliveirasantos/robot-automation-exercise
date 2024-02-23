@@ -25,6 +25,7 @@ jobs:
           default-jre \
           wget \
           gnupg \
+          curl \
           unzip \
           && pip install --upgrade pip \
           && pip install robotframework==7.0 robotframework-seleniumlibrary
