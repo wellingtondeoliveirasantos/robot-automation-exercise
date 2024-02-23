@@ -51,5 +51,8 @@ jobs:
           fi
           echo "Chrome version: $CHROME_VERSION"
 
+      - name: Update Selenium
+        run: pip install --upgrade robotframework-seleniumlibrary
+
       - name: Run Robot Framework tests
         run: robot --variable BROWSER:headlesschrome tests/
