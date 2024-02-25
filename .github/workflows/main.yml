@@ -23,7 +23,7 @@ jobs:
           sudo dnf install -y \
             python37 \
             google-chrome-stable \
-            python3-pip \
+            python-pip \
             libappindicator \
             libdbusmenu \
             dbus-x11 \
@@ -40,12 +40,12 @@ jobs:
           sudo dnf install -y dnf-plugins-core
           sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
           sudo dnf install -y terraform
-          pip3 install --upgrade pip
-          pip3 install webdrivermanager robotframework robotframework-seleniumlibrary
+          pip install --upgrade pip
+          pip install webdrivermanager robotframework robotframework-seleniumlibrary
           webdrivermanager chrome
       - name: Verify installations
         run: |
-          python3 --version
+          python --version
           google-chrome --version
           chromedriver --version
       - name: Run Tests
