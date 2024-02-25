@@ -31,8 +31,6 @@ jobs:
           python3 --version
           google-chrome --version
           chromedriver --version
-      - name: List files in test directory
-        run: ls ./tests
       - name: Run Tests
         run: robot -d ./results -v BROWSER:headlesschrome ./tests/tc01.robot
       - name: Archive Test Results
