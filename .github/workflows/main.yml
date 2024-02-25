@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: fedora:31
-    tags:
-      - docker
     steps:
       - name: Check Fedora version
         run: cat /etc/*-release
@@ -43,8 +41,3 @@ jobs:
     env:
       CHROME_BIN: /usr/bin/google-chrome
       CHROMEDRIVER_PATH: /usr/bin/chromedriver
-    artifacts:
-      when: always
-      paths:
-        - ./results
-      expire_in: 1 week
