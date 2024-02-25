@@ -10,9 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: fedora:31
-    env:
-      CHROME_BIN: /usr/bin/google-chrome
-      CHROMEDRIVER_PATH: /usr/bin/chromedriver
+    tags:
+      - docker
     steps:
       - name: Check Fedora version
         run: cat /etc/*-release
@@ -22,36 +21,30 @@ jobs:
         run: |
           sudo dnf install -y \
             python37 \
-            google-chrome-stable \
-            python-pip \
-            libappindicator \
-            libdbusmenu \
-            dbus-x11 \
-            gtk3 \
-            ipa-gothic-fonts \
-            ipa-mincho-fonts \
-            xorg-x11-fonts-100dpi \
-            xorg-x11-fonts-75dpi \
-            xorg-x11-utils \
-            xorg-x11-fonts-cyrillic \
-            xorg-x11-fonts-Type1 \
-            xorg-x11-fonts-misc
+            fedora-workstation-repositories \
+            dnf-plugins-core
           sudo dnf config-manager --set-enabled google-chrome
-          sudo dnf install -y dnf-plugins-core
-          sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
-          sudo dnf install -y terraform
-          pip install --upgrade pip
-          pip install webdrivermanager robotframework robotframework-seleniumlibrary
+          sudo dnf install -y google-chrome-stable
+          pip3 install --upgrade pip
+          pip3 install webdrivermanager robotframework robotframework-seleniumlibrary
           webdrivermanager chrome
       - name: Verify installations
         run: |
-          python --version
+          python3 --version
           google-chrome --version
           chromedriver --version
       - name: Run Tests
-        run: robot -d ./results -v BROWSER:headlesschrome ./tests/tc01.robot
+        run: robot -d ./results -v BROWSER:headlesschrome ./test/tc01.robot
       - name: Archive Test Results
         uses: actions/upload-artifact@v2
         with:
           name: results
           path: ./results
+    env:
+      CHROME_BIN: /usr/bin/google-chrome
+      CHROMEDRIVER_PATH: /usr/bin/chromedriver
+    artifacts:
+      when: always
+      paths:
+        - ./results
+      expire_in: 1 week
