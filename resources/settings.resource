@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 *** Variables ***
 #Dados gerais
 ${URL}  http://automationexercise.com
-${Browser}  HeadlessChrome
+${Browser}  chrome
 ${OPTIONS}  add_argument("--disable-dev-shm-usage"); add_argument("--headless"); add_argument("--no-sandbox")
 
 
