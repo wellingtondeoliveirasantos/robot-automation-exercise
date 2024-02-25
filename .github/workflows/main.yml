@@ -31,8 +31,10 @@ jobs:
           python3 --version
           google-chrome --version
           chromedriver --version
+      - name: List files in test directory
+        run: ls ./test
       - name: Run Tests
-        run: robot -d ./results -v BROWSER:headlesschrome ./tests/tc01.robot
+        run: robot -d ./results -v BROWSER:headlesschrome ./test/tc01.robot
       - name: Archive Test Results
         uses: actions/upload-artifact@v2
         with:
