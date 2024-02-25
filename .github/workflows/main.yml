@@ -32,7 +32,7 @@ jobs:
           google-chrome --version
           chromedriver --version
       - name: Run Tests
-        working-directory: robot-automation-exercise
+        working-directory: ./automationexercise/tests
         run: robot -d ./results -v BROWSER:headlesschrome ./tests/tc01.robot
       - name: Archive Test Results
         uses: actions/upload-artifact@v2
