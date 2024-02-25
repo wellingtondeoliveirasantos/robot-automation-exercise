@@ -35,8 +35,11 @@ jobs:
             xorg-x11-utils \
             xorg-x11-fonts-cyrillic \
             xorg-x11-fonts-Type1 \
-            xorg-x11-fonts-misc \
-            dnf-command(config-manager)
+            xorg-x11-fonts-misc
+          sudo dnf config-manager --set-enabled google-chrome
+          sudo dnf install -y dnf-plugins-core
+          sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
+          sudo dnf install -y terraform
           pip3 install --upgrade pip
           pip3 install webdrivermanager robotframework robotframework-seleniumlibrary
           webdrivermanager chrome
