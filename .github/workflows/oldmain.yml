@@ -1,0 +1,69 @@
+name: Robot Framework Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test-automation:
+    runs-on: ubuntu-latest
+
+    container:
+      image: python:3.13-rc-slim
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          apt-get update && apt-get install -y \
+            default-jre \
+            wget \
+            gnupg \
+            curl \
+            unzip \
+            && pip install --upgrade pip \
+            && pip install robotframework==4.1 robotframework-seleniumlibrary selenium==4.9.1
+
+      - name: Add Google Chrome repository key
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
+
+      - name: Add Google Chrome repository
+        run: |
+          echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list
+
+      - name: Install Google Chrome
+        run: |
+          apt-get update && apt-get install -y google-chrome-stable
+
+      - name: Obtain Chrome version
+        run: |
+          CHROME_VERSION=$(google-chrome-stable --version | awk '{print $3}')
+          if [ -z "$CHROME_VERSION" ]; then
+            echo "Failed to obtain Chrome version."
+            exit 1
+          fi
+          echo "Chrome version: $CHROME_VERSION"
+
+      - name: Download and install ChromeDriver
+        run: |
+          CHROME_DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget -q -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+          unzip -qq /tmp/chromedriver_linux64.zip -d /tmp
+          chmod +x /tmp/chromedriver
+          mv /tmp/chromedriver /usr/local/bin/
+
+      - name: Add ChromeDriver to PATH
+        run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
+
+      - name: Run Robot Framework tests
+        run: |
+          robot --variable BROWSER:headlesschrome \
+                --argumentfile chrome_args.txt \
+                tests/tc01.robot
