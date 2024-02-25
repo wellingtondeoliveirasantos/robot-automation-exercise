@@ -1,9 +1,9 @@
 name: Acceptance Tests
 
 on:
-    push:
-      branches:
-        - master
+  push:
+    branches:
+      - master
 
 jobs:
   web_testing_in_chrome:
@@ -21,16 +21,28 @@ jobs:
       - name: Install Dependencies
         run: |
           sudo dnf install -y \
-          python37 \
-          fedora-workstation-repositories \
-          dnf-command(config-manager) \
-          google-chrome-stable
+            python37 \
+            google-chrome-stable \
+            python3-pip \
+            libappindicator \
+            libdbusmenu \
+            dbus-x11 \
+            gtk3 \
+            ipa-gothic-fonts \
+            ipa-mincho-fonts \
+            xorg-x11-fonts-100dpi \
+            xorg-x11-fonts-75dpi \
+            xorg-x11-utils \
+            xorg-x11-fonts-cyrillic \
+            xorg-x11-fonts-Type1 \
+            xorg-x11-fonts-misc \
+            dnf-command(config-manager)
           pip3 install --upgrade pip
           pip3 install webdrivermanager robotframework robotframework-seleniumlibrary
           webdrivermanager chrome
       - name: Verify installations
         run: |
-          python --version
+          python3 --version
           google-chrome --version
           chromedriver --version
       - name: Run Tests
@@ -40,4 +52,3 @@ jobs:
         with:
           name: results
           path: ./results
-
