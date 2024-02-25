@@ -32,7 +32,7 @@ jobs:
           google-chrome --version
           chromedriver --version
       - name: Run Tests
-        run: robot -d ./results -v BROWSER:headlesschrome
+        run: robot -d ./results -v BROWSER:headlesschrome /tests
       - name: Archive Test Results
         uses: actions/upload-artifact@v2
         with:
