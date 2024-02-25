@@ -6,6 +6,9 @@ Library  SeleniumLibrary
 #Dados gerais
 ${URL}  http://automationexercise.com
 ${Browser}  HeadlessChrome
+${OPTIONS}  add_argument("--disable-dev-shm-usage"); add_argument("--headless"); add_argument("--no-sandbox")
+
+
 
 #Dados do teste
 ${Email}         wellingtondeoliveirasanto@gmail.com
