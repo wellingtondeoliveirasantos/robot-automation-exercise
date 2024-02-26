@@ -34,7 +34,7 @@ jobs:
       - name: Print current working directory
         run: pwd  # Adicionado este passo
       - name: Run Tests
-        run: robot -d ./results -v BROWSER:headlesschrome /__w/robot-automation-exercise/robot-automation-exercise/tests/tc01.robot
+        run: robot -d ./results -v BROWSER:headlesschrome /__w/robot-automation-exercise/robot-automation-exercise/tests/tc001.robot  # Atualizado o caminho do arquivo de teste para tc001.robot
         continue-on-error: true  # Permitir que o workflow continue mesmo se este passo falhar
       - name: Capture Robot Framework output
         run: cat ./results/log.html
