@@ -15,6 +15,8 @@ jobs:
         run: cat /etc/*-release
       - name: Upgrade Fedora
         run: sudo dnf upgrade -y
+      - name: Create Results Directory
+        run: mkdir -p ./results
       - name: Install Dependencies
         run: |
           sudo dnf install -y \
@@ -33,6 +35,8 @@ jobs:
           chromedriver --version
       - name: Print current working directory
         run: pwd  # Adicionado este passo
+      - name: Create Results Directory
+        run: mkdir -p ./results  
       - name: Run Tests
         run: robot -d ./results -v BROWSER:headlesschrome --loglevel TRACE ./tests/tc001.robot
         continue-on-error: true  # Permitir que o workflow continue mesmo se este passo falhar
