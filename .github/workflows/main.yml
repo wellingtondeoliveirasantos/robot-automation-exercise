@@ -35,6 +35,8 @@ jobs:
           chromedriver --version
       - name: Print current working directory
         run: pwd  # Adicionado este passo
+      - name: Create Tests Directory
+        run: mkdir -p ./tests  
       - name: Run Tests
         run: robot -d ./results -v BROWSER:headlesschrome --loglevel TRACE ./tests/tc001.robot
         continue-on-error: true  # Permitir que o workflow continue mesmo se este passo falhar
