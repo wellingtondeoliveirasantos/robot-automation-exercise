@@ -50,4 +50,4 @@ jobs:
     env:
       CHROME_BIN: /usr/bin/google-chrome
       CHROMEDRIVER_PATH: /usr/bin/chromedriver
-      PATH_TEST: /__w/robot-automation-exercise/robot-automation-exercise/tests/
+      PATH_TEST: ./tests/
